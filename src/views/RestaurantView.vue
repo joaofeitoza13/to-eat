@@ -1,42 +1,13 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-
-type Diet = 
-  | 'vegetarian'
-  | 'vegan'
-  | 'gluten-free'
-  | 'pescatarian'
-  | 'lactose-free'
-  | 'low-carb'
-  | 'canivore'
-  | 'frutivore'
-  | 'normal'
-  | 'other'
-
-type RecomendedStatus = 
-  | 'Not Recommended'
-  | 'Want to Try'
-  | 'Recommended'
-  | 'Must Try'
+import type { Restaurant } from '@/helpers';
   
-interface Dish {
-  name: string,
-  diet?: Diet,
-  status?: RecomendedStatus
-}
-
-interface Restaurant {
-  name: string,
-  address?: string,
-  status?: RecomendedStatus,
-  dishes?: Dish[]
-}
-
 const recommendedStatusList = ['Not Recommended', 'Want to Try', 'Recommended', 'Must Try']
 
 const restaurantList = ref<Restaurant[]>([])
 const newRestaurant = ref<Restaurant>({
-  name: '',
+  name: 'Restaurant Name',
+  address: 'Restaurant Address, 000',
   status: 'Want to Try'
 })
 

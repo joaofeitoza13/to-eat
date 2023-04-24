@@ -1,36 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-
-type Diet = 
-  | 'vegetarian'
-  | 'vegan'
-  | 'gluten-free'
-  | 'pescatarian'
-  | 'lactose-free'
-  | 'low-carb'
-  | 'canivore'
-  | 'frutivore'
-  | 'normal'
-  | 'other'
-
-type RecomendedStatus = 
-  | 'Not Recommended'
-  | 'Want to Try'
-  | 'Recommended'
-  | 'Must Try'
-  
-interface Dish {
-  name: string,
-  diet?: Diet,
-  status?: RecomendedStatus
-}
-
-const recommendedStatusList = ['Not Recommended', 'Want to Try', 'Recommended', 'Must Try']
+import { type Dish, recommendedStatusList } from '@/helpers'
 
 const dishList = ref<Dish[]>([])
+
 const newDish = ref<Dish>({
-  name: '',
-  diet: 'normal',
+  name: 'Dish Name',  
+  diet: 'Normal',
   status: 'Want to Try'
 })
 
